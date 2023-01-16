@@ -1,19 +1,84 @@
 
-<?php 
+<?php
 
-class Empleado {
+class Empleado
+{
     //PROPIEDADES
     public $nombre;
     public $salario;
-    public static $numEmpleados=0;
+    public static $numEmpleados = 0;
     //MÉTODOS
-    public function setNombre($nombre) {
-        $this->nombre=$nombre;  
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
     }
-    public function getNombre(){
+    public function getNombre()
+    {
         return $this->nombre;
     }
+
+    public function __construct($nombre, $salario)
+    {
+        Empleado::$numEmpleados++;
+        $this->nombre = $nombre;
+        if ($salario <= 2000) {
+            $this->salario = $salario;
+        }
+    }
+   public function getSalario(){
+
+        return $this->salario;
+    }
+
+    
 }
+
+class Operario extends Empleado{
+  private $turno;
+
+ public function __construct($nombre,$salario,$turno){
+    
+    parent::__construct($nombre,$salario);
+   
+ 
+    if($turno){
+        $this->turno="nocturno";
+
+    }else{
+        $this->turno="diurno";
+    }
+
+
+  }
+//el dato de entrada es un boleano que determina si es true el turno es noctruno y si es false diurno
+  public function setTurno(bool $turno){
+    
+    if($turno){
+        $this->turno="nocturno";
+
+    }else{
+        $this->turno="diurno";
+    }
+
+
+  } 
+public function getTurno(){
+
+    return $this->turno;
+}
+}
+
+$empleado = new Empleado("Alvaro",1500);
+$operario = new Operario("Alvaro",1500,false);
+echo $empleado::$numEmpleados;//comprobamos que funcione el contador
+echo $operario->getTurno();//comprobamos que funcione la seleccion de turnos.
+
+$operario2 = new Operario("Alvaro",2100,true);
+
+echo $operario2->getSalario();//Comprobamos que si ponemos un salario mayor a 2000 eruos no lo  guarda y que funciona el metodo get salario.
+
+
+
 
 /* 
 Completa los siguientes apartados: 
@@ -25,5 +90,4 @@ Completa los siguientes apartados:
     4.2. Deberá ejecutar el constructor de la clase padre añadiendo la variable turno.  
     4.3. Crear el setter para turno.  Los valores para esta variable sólo pueden ser "diurno" o "nocturno".  
 5. Crear objetos que permitan comprobar todos los apartados anteriores.
-*/ 
-
+*/
