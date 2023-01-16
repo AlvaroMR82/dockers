@@ -25,55 +25,47 @@ class Empleado
             $this->salario = $salario;
         }
     }
-   public function getSalario(){
+    public function getSalario()
+    {
 
         return $this->salario;
     }
-
-    
 }
 
-class Operario extends Empleado{
-  private $turno;
+class Operario extends Empleado
+{
+    private $turno;
 
- public function __construct($nombre,$salario,$turno){
-    
-    parent::__construct($nombre,$salario);
-   
- 
-    if($turno){
-        $this->turno="nocturno";
+    public function __construct($nombre, $salario, $turno)
+    {
 
-    }else{
-        $this->turno="diurno";
+        parent::__construct($nombre, $salario);
+
+        self::getTurno($turno);
     }
+    //el dato de entrada es un boleano que determina si es true el turno es noctruno y si es false diurno
+    public function setTurno(bool $turno)
+    {
 
-
-  }
-//el dato de entrada es un boleano que determina si es true el turno es noctruno y si es false diurno
-  public function setTurno(bool $turno){
-    
-    if($turno){
-        $this->turno="nocturno";
-
-    }else{
-        $this->turno="diurno";
+        if ($turno) {
+            $this->turno = "nocturno";
+        } else {
+            $this->turno = "diurno";
+        }
     }
+    public function getTurno()
+    {
 
-
-  } 
-public function getTurno(){
-
-    return $this->turno;
-}
+        return $this->turno;
+    }
 }
 
-$empleado = new Empleado("Alvaro",1500);
-$operario = new Operario("Alvaro",1500,false);
-echo $empleado::$numEmpleados;//comprobamos que funcione el contador
-echo $operario->getTurno();//comprobamos que funcione la seleccion de turnos.
+$empleado = new Empleado("Alvaro", 1500);
+$operario = new Operario("Alvaro", 1500, false);
+echo $empleado::$numEmpleados; //comprobamos que funcione el contador
+echo $operario->getTurno(); //comprobamos que funcione la selección de turnos.
 
-$operario2 = new Operario("Alvaro",2100,true);
+$operario2 = new Operario("Alvaro", 2100, true);
 
 echo $operario2->getSalario();//Comprobamos que si ponemos un salario mayor a 2000 eruos no lo  guarda y que funciona el metodo get salario.
 
