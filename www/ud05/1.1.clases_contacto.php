@@ -9,6 +9,10 @@ class Contacto {
     public $apellido;
     public $num_telf;
 
+    function __destruct()
+    {
+        echo "El objeto se esta destruyendo"."<br>";
+    }
     function __construct($nombre,$apellido,$num_telf)
     {
         $this->nombre=$nombre;
@@ -52,10 +56,6 @@ function muestraInformacion(){
 }
 /* 4. Agregue un método ```__destruct()```, que muestra en pantalla el objeto que se está destruyendo. */ 
 
-function __destruct()
-{
-    echo "El objeto se esta destruyendo"."<br>";
-}
 
 }
 
@@ -67,15 +67,15 @@ $contacto1= new Contacto("Alvaro","Mosquera","1234567879");
 $contacto2= new Contacto("Brais","Mosquera","123456789");
 $contacto3= new Contacto("Roi","Mosquera","987654321");
 
-echo $contacto1->getnombre()."<br>";
+echo $contacto1->getNombre()."<br>";
 echo $contacto1->getApellido()."<br>";
 echo $contacto1->getNum_telf()."<br>"."<br>";
 
-echo $contacto2->getnombre()."<br>";
+echo $contacto2->getNombre()."<br>";
 echo $contacto2->getApellido()."<br>";
 echo $contacto2->getNum_telf()."<br>"."<br>";
 
-echo $contacto3->getnombre()."<br>";
+echo $contacto3->getNombre()."<br>";
 echo $contacto3->getApellido()."<br>";
 echo $contacto3->getNum_telf()."<br>"."<br>";
 
