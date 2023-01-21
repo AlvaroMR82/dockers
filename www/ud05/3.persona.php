@@ -14,7 +14,7 @@ abstract class Persona
 {
 
     private $id;
-    private $nombre;
+    protected $nombre;
     protected $apellidos;
 
     abstract function getId();
@@ -29,94 +29,96 @@ abstract class Persona
 
 
 
-    /*
+/*
 2. Crea dos subclases:
     - `Usuarios`
     - `Administradores`
-    */ 
+    */
 
-    class Usuarios extends Persona
+class Usuarios extends Persona
+{
+
+    function getId()
     {
-    
-        function getId()
-        {
-            return $this->id;
-        }
-        function getNombre()
-        {
-            return $this->nombre;
-        }
-        function getApellidos()
-        {
-            return $this->apellidos;
-        }
-        function SetId($id)
-        {
-            parent->$this->id = $id;
-        }
-        function SetNombre($nombre)
-        {
-            $this->nombre = $nombre;
-        }
-        function SetApellidos($apellidos)
-        {
-            $this->apellidos = $apellidos;
-        }
-        function __construct($id, $nombre, $apellidos)
-        {
-            self::SetId($id);
-            self::SetNombre($nombre);
-            self::SetApellidos($apellidos);
-        }
-        function accion()
-        {
-            echo self::getNombre().'<br>';
-            echo self::getApellidos().'<br>';
-            echo "Esta persona es un ".self::getId();
-        }
+        return $this->id;
     }
-    
-    
-    class Administradores extends Persona
+    function getNombre()
     {
-    
-        function getId()
-        {
-            return $this->id;
-        }
-        function getNombre()
-        {
-            return $this->nombre;
-        }
-        function getApellidos()
-        {
-            return $this->apellidos;
-        }
-        function SetId($id)
-        {
-            $this->id = $id;
-        }
-        function SetNombre($nombre)
-        {
-            $this->nombre = $nombre;
-        }
-        function SetApellidos($apellidos)
-        {
-            $this->apellidos = $apellidos;
-        }
-        function __construct($id, $nombre, $apellidos)
-        {
-            self::SetId($id);
-            self::SetNombre($nombre);
-            self::SetApellidos($apellidos);
-        }
-        function accion() {
+        return $this->nombre;
+    }
+    function getApellidos()
+    {
+        return $this->apellidos;
+    }
+    function SetId($id)
+    {
+        $this->id = $id;
+    }
+    function SetNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+    function SetApellidos($apellidos)
+    {
+        $this->apellidos = $apellidos;
+    }
+    function __construct($id, $nombre, $apellidos)
+    {
+        self::SetId($id);
+        self::SetNombre($nombre);
+        self::SetApellidos($apellidos);
+    }
+    function accion()
+    {
+        echo self::getNombre() . '<br>';
+        echo self::getApellidos() . '<br>';
+        echo "Esta persona es un " . self::getId();
+    }
+}
 
-            echo self::getNombre().'<br>';
-            echo self::getApellidos().'<br>';
-            echo "Esta persona es un ".self::getId();
-        }
-    }    
+
+class Administradores extends Persona
+{
+
+    function getId()
+    {
+        return $this->id;
+        parent::getId();
+    }
+    function getNombre()
+    {
+        return $this->nombre;
+    }
+    function getApellidos()
+    {
+        return $this->apellidos;
+    }
+    function SetId($id)
+    {
+        $this->id = $id;
+    }
+    function SetNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+    function SetApellidos($apellidos)
+    {
+        $this->apellidos = $apellidos;
+    }
+    function __construct($id, $nombre, $apellidos)
+    {
+        self::SetId($id);
+        self::SetNombre($nombre);
+        self::SetApellidos($apellidos);
+    }
+    function accion()
+    {
+
+        echo self::getNombre() . '<br>';
+        echo self::getApellidos() . '<br>';
+        echo "Esta persona es un " . self::getId();
+    }
+}    
     
 //3. Implementa el método `accion()` que muestre el nombre y los apellidos de la persona, así como una frase identificando si es un usuario o un administrador. 
 
