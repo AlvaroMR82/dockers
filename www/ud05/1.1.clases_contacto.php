@@ -9,10 +9,6 @@ class Contacto {
     public $apellido;
     public $num_telf;
 
-    function __destruct()
-    {
-        echo "El objeto se esta destruyendo"."<br>";
-    }
     function __construct($nombre,$apellido,$num_telf)
     {
         $this->nombre=$nombre;
@@ -56,6 +52,10 @@ function muestraInformacion(){
 }
 /* 4. Agregue un método ```__destruct()```, que muestra en pantalla el objeto que se está destruyendo. */ 
 
+function __destruct()
+{
+    echo "El objeto se esta destruyendo"."<br>";
+}
 
 }
 
