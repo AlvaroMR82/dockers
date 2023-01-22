@@ -1,5 +1,5 @@
 
-<?php 
+<?php
 
 /*
 
@@ -12,4 +12,18 @@ Utilizando una **clase anónima** crea diferentes objetos con los siguientes req
 
 Escribe un ejemplo de uso.
 */
+$obj = new class
+{
+    private   $base=5;
+    private   $altura=5;
+    
+    public function area(){
 
+        return ($this->base*$this->altura)/2;
+    }    
+    
+
+};
+
+
+?>
