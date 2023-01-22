@@ -12,18 +12,30 @@
 
 abstract class Persona
 {
-
+    //atributos
     private $id;
     protected $nombre;
     protected $apellidos;
+    //metodos publicos para poder acceder al $id
+    public function  dameId()
+    {
+        return $this->id;
+    }
+
+    public function ponId($id)
+    {
+        $this->id = $id;
+    }
+
+    //Metodos abstractos
 
     abstract function getId();
     abstract function getNombre();
     abstract function getApellidos();
-    abstract function SetId($id);
-    abstract function SetNombre($nombre);
-    abstract function SetApellidos($apellidos);
-    abstract function __construct();
+    abstract function setId();
+    abstract function setNombre($nombre);
+    abstract function setApellidos($apellidos);
+    abstract function __construct($nombre, $apellidos);
     abstract function accion();
 }
 
@@ -37,10 +49,10 @@ abstract class Persona
 
 class Usuarios extends Persona
 {
-
+    //geters
     function getId()
     {
-        return $this->id;
+        return parent::dameId();
     }
     function getNombre()
     {
@@ -50,24 +62,29 @@ class Usuarios extends Persona
     {
         return $this->apellidos;
     }
-    function SetId($id)
+
+    //seters    
+    function setId()
     {
-        $this->id = $id;
+        parent::ponId("Usuario");
     }
-    function SetNombre($nombre)
+    function setNombre($nombre)
     {
         $this->nombre = $nombre;
     }
-    function SetApellidos($apellidos)
+    function setApellidos($apellidos)
     {
         $this->apellidos = $apellidos;
     }
-    function __construct($id, $nombre, $apellidos)
+    //contructor
+    function __construct($nombre, $apellidos)
     {
-        self::SetId($id);
-        self::SetNombre($nombre);
-        self::SetApellidos($apellidos);
+        self::setId();
+        self::setNombre($nombre);
+        self::setApellidos($apellidos);
     }
+
+    //3. Implementa el método `accion()` que muestre el nombre y los apellidos de la persona, así como una frase identificando si es un usuario o un administrador. 
     function accion()
     {
         echo self::getNombre() . '<br>';
@@ -79,11 +96,10 @@ class Usuarios extends Persona
 
 class Administradores extends Persona
 {
-
+    //geters
     function getId()
     {
-        return $this->id;
-        parent::getId();
+        return parent::dameId();
     }
     function getNombre()
     {
@@ -93,35 +109,43 @@ class Administradores extends Persona
     {
         return $this->apellidos;
     }
-    function SetId($id)
+
+    //setters
+    function setId()
     {
-        $this->id = $id;
+        parent::ponId("Administrador");
     }
-    function SetNombre($nombre)
+    function setNombre($nombre)
     {
         $this->nombre = $nombre;
     }
-    function SetApellidos($apellidos)
+    function setApellidos($apellidos)
     {
         $this->apellidos = $apellidos;
     }
-    function __construct($id, $nombre, $apellidos)
+
+    //construcor
+    function __construct($nombre, $apellidos)
     {
-        self::SetId($id);
-        self::SetNombre($nombre);
-        self::SetApellidos($apellidos);
+        self::setId();
+        self::setNombre($nombre);
+        self::setApellidos($apellidos);
     }
+    //3. Implementa el método `accion()` que muestre el nombre y los apellidos de la persona, así como una frase identificando si es un usuario o un administrador. 
     function accion()
     {
-
-        echo self::getNombre() . '<br>';
+        echo '<br>' . self::getNombre() . '<br>';
         echo self::getApellidos() . '<br>';
-        echo "Esta persona es un " . self::getId();
+        echo "Esta persona es un " . self::getId() . '<br>';
     }
-}    
-    
-//3. Implementa el método `accion()` que muestre el nombre y los apellidos de la persona, así como una frase identificando si es un usuario o un administrador. 
-
-
-
+}
 //4. Genera los objetos que nos permitan identificar un buen funcionamiento de la aplicación. 
+
+
+$Usuario1 = new Usuarios("Alvaro", "Mosquera");//creamos un usuario y ya se prueban los seters
+$administrador = new Administradores("Sabela", "Sobrino");//creamos un administrador y ya se prueban los seters
+
+
+$Usuario1->accion();//con el metodo accion se prueban los geters y el id de la clase padre, tanto de la calse usuarios como la del administradores.
+$administrador->accion();
+
