@@ -25,5 +25,6 @@ $obj = new class
 
 };
 
+//las clases anonimas solo se pueden usar una vez.
 
 ?>
