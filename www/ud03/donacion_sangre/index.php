@@ -1,3 +1,32 @@
+<?php
+
+//1. Conectar a la base de datos con PDO
+
+$servername = "db";
+$username = "root";
+$password = "test";
+//lo primero que se hace en el index es crear la base de datos para que las siguientes conxiones funcionen bien
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=dbname", $username, $password);
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $sql = "CREATE DATABASE IF NOT EXISTS donacion ";
+  $conn->exec($sql);
+//$sql= "DROP TABLE donantes";
+    $conn->exec($sql);
+
+
+} catch(PDOException $e) {
+  echo  $e->getMessage();
+}
+
+
+
+
+
+//7. Cerrar la conexión 
+$conn = null;
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,7 +44,7 @@
     <a class="btn btn-primary" href="alta_donantes.php" role="button"> Alta donantes</a>
     <a class="btn btn-primary" href="buscar_donantes.php" role="button"> Buscar donantes</a>
     <a class="btn btn-primary" href="listar_donantes.php" role="button"> Listar donantes</a>
-    <a class="btn btn-primary" href="alta_admin.php" role="button"> Nuevos administradores</a>
+    
 
     <br>
   </body>

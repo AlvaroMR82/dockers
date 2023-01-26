@@ -1,9 +1,4 @@
-<select name="opcion">
-<option value="cocacola">Coca Cola</option>
-<option value="pepsi">Pepsi Cola</option>
-<option value="fanta">Fanta Naranja</option>
-<option value="trina">Trina Manzana</option>
-</select>
+
 
 <?php 
 
@@ -25,5 +20,28 @@ Crea un formulario para solicitar una de las siguientes bebidas:
     Pediste 3 botellas de Coca Cola. Precio total a pagar: 3 Euros.
     Puedes utilizar sentencias `switch` o `if`.
     */
+$bebida = $_POST['opcion'];
+$numero = $_POST['numero'];
+function total($cantidad,$bebida_pedida){
+        if ( $bebida_pedida == "pepsi"){
+
+            return ($cantidad * 0.8);
+
+        }elseif($bebida_pedida =="fanta"){
+            
+            return ($cantidad * 0.9);
+
+
+        }elseif($bebida_pedida == "trina"){
+
+            return ($cantidad * 1.10);
+
+        }elseif ($bebida_pedida == "cocacola"){
+            return $cantidad;
+        }
+        
+}
+echo "Pediste $numero botellas de $bebida. El precio total a paga es:".total($numero,$bebida)."€" ;
+
 
 ?>

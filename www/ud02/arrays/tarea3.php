@@ -3,8 +3,12 @@
 /*
 1. Crea una matriz con 30 posiciones y que contenga números aleatorios entre 0 y 20 (inclusive). Uso de la función [rand](https://www.php.net/manual/es/function.rand.php). Imprima la matriz creada anteriormente.
 */ 
+for($i=0;$i<30;$i++){
+    $numeros[$i] = rand();
 
-
+}
+print_r ($numeros);
+echo "<br/>";
 
 /* 
 2. (Optativo) Cree una matriz con los siguientes datos: `Batman`, `Superman`, `Krusty`, `Bob`, `Mel` y `Barney`.
@@ -14,7 +18,52 @@
     - Ordene los elementos de la matriz e imprima la matriz ordenada. 
     - Agregue los siguientes elementos al comienzo de la matriz: `Apple`, `Melon`, `Watermelon`.
 */
+//se crea la matriz y se imprime
+$supereroes = ["Batman", "Superman", "Krusty", "Bob", "Mel","Barney"];
+print_r($supereroes);
+echo "<br/>";
 
+//se elimina el ultimo dato del array con la función count
+unset($supereroes[count($supereroes)-1]);
+print_r($supereroes);
+echo "<br/>";
+
+//se imprime la posiscion donde se encuentra superman
+foreach($supereroes as $s){
+    $i=0;
+    $i++;
+
+    if($s=="Superman"){
+
+       echo $i;
+    }
+}
+echo "<br/>";
+
+//se añaden los elementos a la matriz
+/* con la funcion count
+$supereroes[count($supereroes)]="Carl";
+$supereroes[count($supereroes)]="Lenny";
+$supereroes[count($supereroes)]="Burns";
+$supereroes[count($supereroes)]="Lisa";
+print_r($supereroes);
+echo "<br/>";
+*/
+array_push($supereroes, "Carl","Lenny","Burns","Lisa");
+print_r($supereroes);
+echo "<br/>";
+
+
+//se ordena y se imprime
+sort($supereroes);
+print_r($supereroes);
+echo "<br/>";
+
+//se agregan los elementos y se imprime
+
+array_unshift($supereroes,"Apple","Melon","Whatermelon");
+print_r($supereroes);
+echo "<br/>";
 
 
 
@@ -22,8 +71,10 @@
     - Agregue el elemento 'Pera' al final de la matriz. */ 
 
 
-
-
-
+$copia = array_slice($supereroes, 3,3);
+ array_push($copia, "Pera");
+ print_r($copia);
+ echo "<br/>";
+ 
 
 ?>

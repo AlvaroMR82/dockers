@@ -1,18 +1,45 @@
 <?php
-//1. Conectar a la base de datos
+//1. Conectar a la base de datos con librerias, ya se comprueba en la funcion coenxion().
+include("conexiones.php");
+$conn=conexion();
 
-//2. Comprobar la conexión
+//se crea la tabla administradores a traves de una sentencia.
+
+  $sql1 = "CREATE TABLE IF NOT EXISTS administradores(
+      nombre_usuario VARCHAR(50) PRIMARY KEY NOT NULL,
+      contrasinal VARCHAR(200) NOT NULL
+      )";
+
+
+//$sql= "DROP TABLE administradores";
+    $conn->exec($sql1);
+
 
 //3. Recoger los datos del formulario 
-
 //4. Validar los datos del formulario evitando posibles ataques y comprobando que estén los datos obligatorios. 
 
-//5. Insertar el registro en la base de datos
+if(isset($_POST['name']) && isset($_POST['password']) ){
+$nombre=$_POST['name'];
+$contrasinal=$_POST['password'];
+
+
+//5. Insertar el registro en la base de datos con una sentecia preparada
+
+$stmt = $conn->prepare("INSERT INTO administradores(nombre_usuario, contrasinal) 
+VALUES(:nombre, :contrasinal)");
+
+$stmt->bindParam(':nombre',$nombre);
+$stmt->bindParam(':contrasinal', $contrasinal);
 
 //6. Comprobar la insercción 
+if ($stmt->execute()){
+  echo "Insercion correcta";
+}
+}
+
 
 //7. Cerrar la conexión 
-
+$conn = null;
 ?>
 
 <!doctype html>
@@ -34,7 +61,9 @@
       Contraseña: <input type="password" name="password">
       <br><br>
       <input type="submit" name="submit" value="Submit"> 
+      
     </form>
+    <footer><a class="btn btn-primary" href="index.php" role="button"> Volver</a></footer>
 </div>
   </body>
 </html>

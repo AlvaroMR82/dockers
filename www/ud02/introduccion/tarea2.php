@@ -2,25 +2,25 @@
 
 
  valor 
- $_N
- $valor_actual 
- $n
- $#datos 
- $valorInicial0
- $proba,valor 
- $2saldo
- $n
- $meuProblema
- $meu Problema
- $echo
- $m&m
- $registro
- $ABC
- $85 Nome
- $AAAAAAAAA
- $nome_apelidos
- $saldoActual
- $92
- $*143idade
+ $_N // Correcto.
+ $valor_actual // Correcto.
+ $n// Correcto.
+ $#datos  //Mal empieza por un caracter reservado.
+ $valorInicial0 // Correcto
+ $proba,valor // Mal para inicializar se usa "=".
+ $2saldo // malempieza por numero
+ $n //Correcto
+ $meuProblema // Correcto
+ $meu Problema // mal tiene una separación.
+ $echo // Mal echo es un comando reservado.
+ $m&m  // Mal lleva un caracter reservado.
+ $registro // Correcto.
+ $ABC // Correcto.
+ $85 Nome // mal empieza por numero y tiene una separación.
+ $AAAAAAAAA // Correcto.
+ $nome_apelidos // Correcto.
+ $saldoActual // Correcto.
+ $92 //empieza por numero.
+ $*143idade // Mal empieza por un caracter reservado.
 
 ?>

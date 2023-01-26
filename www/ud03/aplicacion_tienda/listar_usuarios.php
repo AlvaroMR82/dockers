@@ -12,35 +12,66 @@
 
     <?php
     //1. Crear la conexión 
+    $conexion_tienda = new mysqli('db','root','test','tienda');
 
     //2. Comprobar la conexión
+    $error = $conexion_tienda->connect_errno;
+    if($error !=null){
+      die("Fallo en al conexion".$conexion_tienda->connect_error." Con numero ".$error);
+    }
+    echo " conexion tienda echa ";
 
-    //3. Configurar una consulta SQL que selecciona las columnas id, nombre, apellido, edad y provincia de la tabla Cliente. 
+    //3. Configurar una consulta SQL que selecciona las columnas id, nombre, apellido, edad y provincia de la tabla Cliente.
+    $sql= "SELECT id, nombre, apellido, edad, provincia FROM usuarios";
+    $resultados = $conexion_tienda->query($sql); 
+    
+    
 
-    //4. Comporbar si se devuelve alguna fila 
 
     ?> 
   <table class="table">
   <thead class="thead-light">
     <tr>
       <th scope="col">id</th>
+      <th scope="col">nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">edad</th>
+      <th scope="col">provincia</th>
       <!-- Completar la tabla -->
     </tr>
   </thead>
   <tbody>
   
     <?php 
+    //4. Comporbar si se devuelve alguna fila 
    //5. Si se devuelven más de cero filas, recorrer los resultados e imprimir en una tabla los resultados 
 
       //Ejemplo: echo "<td>". $row['id']. "</td> "; 
+      if($resultados->num_rows > 0){
 
-   //6. Eliminar la fila correspondiente. 
+        while($row = $resultados->fetch_assoc()){
+          echo "<tr>";
+          echo "<td>".$row["id"]."</td>";
+          echo "<td>".$row["nombre"]."</td>";
+          echo "<td>".$row["apellido"]."</td>";
+          echo "<td>".$row["edad"]."</td>";
+          echo "<td>".$row["provincia"]."</td>";
+          //6. Eliminar la fila correspondiente.   
+          //Ejemplo:  echo "<td> <a class='btn btn-primary' href=borrar.php?id=".$row['id'].">Borrar</a> </td>";
+          echo "<td> <a class='btn btn-primary' href=borrar.php?id=".$row['id'].">Borrar</a>";
+          echo "<a class='btn btn-primary' href=editar.php?id=".$row['id'].">Editar</a></td>";
+          echo "</tr>";
+        }
+      }
   
-     //Ejemplo:  echo "<td> <a class='btn btn-primary' href=borrar.php?id=".$row['id'].">Borrar</a> </td>";
+
+   
 
    //7. Cerrar conexión 
+   $conexion_tienda->close();
   ?>
     </tbody>
   </table>
+  <footer><a class="btn btn-primary" href="index.php" role="button"> Volver</a></footer>
   </body>
 </html>
