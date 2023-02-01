@@ -19,10 +19,13 @@ class Empleado
 
     public function __construct($nombre, $salario)
     {
+        //creamos una variable estatica que se aumenta caba vez que se usa el constructor
         Empleado::$numEmpleados++;
         $this->nombre = $nombre;
         if ($salario <= 2000) {
             $this->salario = $salario;
+        }else{
+            $this->salario = 2000;
         }
     }
     public function getSalario()
@@ -31,6 +34,7 @@ class Empleado
         return $this->salario;
     }
 }
+//Crea una clase Operario que sea clase hija de Empleado
 
 class Operario extends Empleado
 {
@@ -38,7 +42,7 @@ class Operario extends Empleado
 
     public function __construct($nombre, $salario, $turno)
     {
-
+        //ejecuta el constructor de la clase padre.
         parent::__construct($nombre, $salario);
 
         self::getTurno($turno);
@@ -53,13 +57,14 @@ class Operario extends Empleado
             $this->turno = "diurno";
         }
     }
+
     public function getTurno()
     {
 
         return $this->turno;
     }
 }
-
+//Crear objetos que permitan comprobar todos los apartados anteriores
 $empleado = new Empleado("Alvaro", 1500);
 $operario = new Operario("Alvaro", 1500, false);
 echo $empleado::$numEmpleados; //comprobamos que funcione el contador

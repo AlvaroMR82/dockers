@@ -1,7 +1,7 @@
 <?php
 
 use Usuario as GlobalUsuarios;
-
+//creamos la clase usuarios con sus geter,seters y constrcutor y se usa este para pasar a la base de datos 
 class Usuario
 {
   private  $nombre;
@@ -51,6 +51,50 @@ class Usuario
    $this->provincia=$provincia;
   }
 
+public function guardarDatos(){
+  
+//1. Conectar a la base de datos
+  $conexion_tienda = new mysqli('db', 'root', 'test', 'tienda');
+  $error = $conexion_tienda->connect_errno;
+  //se coamprueba la conexión
+  if ($error != null) {
+    die("Fallo en al conexion" . $conexion_tienda->connect_error . " Con numero " . $error);
+  }
+  echo " conexion tienda echa ";
+  
+  //se crea la sentencia dode se establece la tabla, los datos y su tipo
+  $sql = "CREATE TABLE IF NOT EXISTS usuarios(
+    id INT(6) AUTO_INCREMENT PRIMARY KEY, 
+    nombre VARCHAR(50) NOT NULL, 
+    apellido VARCHAR(100) NOT NULL,
+    edad INT(50) NOT NULL,
+    provincia VARCHAR(50) NOT NULL
+  )";
+  
+  //$sql = "DROP TABLE ususarios";
+  //se comprueba la creación de la tabla
+  if ($conexion_tienda->query($sql)) {
+  
+    echo " tabla creada";
+  } else {
+    echo " error creando tabla o tabla ya existe ";
+  }
+  //sentencia preparada para hacer el insert en la tabla
+$stmt = $conexion_tienda->prepare("INSERT INTO usuarios(nombre, apellido, edad, provincia) 
+VALUES(?,?,?,?)");
+$stmt->bind_param("ssss",$this->nombre,$this->apellido,$this->edad,$this->provincia);
+//6. Comprobar la insercción 
+if ($stmt->execute()) {
+  echo "entrada hecha";
+}
+
+//7. Cerrar la conexión 
+
+$stmt->close();
+
+$conexion_tienda->close();
+
+}
 
 }
 //hacemos una conexion inicial a la base de datos, orientado a objetos. 
@@ -68,69 +112,19 @@ if ($conexion_inicial->query($sql)) {
 } else {
   echo " error creando base de datos ";
 }
-
-
-
-
-//1. Conectar a la base de datos, se conecata ya a la base de datos de la tienda 
 $conexion_inicial->close();
-$conexion_tienda = new mysqli('db', 'root', 'test', 'tienda');
-$error = $conexion_tienda->connect_errno;
-//se coamprueba la conexión
-if ($error != null) {
-  die("Fallo en al conexion" . $conexion_tienda->connect_error . " Con numero " . $error);
-}
-echo " conexion tienda echa ";
-
-//se crea la sentencia dode se establece la tabla, los datos y su tipo
-$sql = "CREATE TABLE IF NOT EXISTS usuarios(
-  id INT(6) AUTO_INCREMENT PRIMARY KEY, 
-  nombre VARCHAR(50) NOT NULL, 
-  apellido VARCHAR(100) NOT NULL,
-  edad INT(50) NOT NULL,
-  provincia VARCHAR(50) NOT NULL
-)";
-
-//$sql = "DROP TABLE ususarios";
-//se comprueba la creación de la tabla
-if ($conexion_tienda->query($sql)) {
-
-  echo " tabla creada";
-} else {
-  echo " error creando tabla o tabla ya existe ";
-}
 
 //3. Recoger los datos del formulario
 if (isset($_POST['name']) && isset($_POST['apellidos']) && isset($_POST['edad']) && isset($_POST['provincia'])) {
+  //se instancia el objeto persona con los datos del formulario
   $persona1= new Usuario($_POST['name'],$_POST['apellidos'],$_POST['edad'],$_POST['provincia']);
-
-$nombre =  $persona1->getNombre();
-$apellido = $persona1->getApellido();
-$edad=$persona1->getEdad();
-$provincia=$persona1->getProvincia();
-}
-//sentencia preparada para hacer el insert en la tabla
-$stmt = $conexion_tienda->prepare("INSERT INTO usuarios(nombre, apellido, edad, provincia) 
-VALUES(?,?,?,?)");
-$stmt->bind_param("ssss",$nombre,$apellido,$edad,$provincia);
-
-//6. Comprobar la insercción 
-
-if ($stmt->execute()) {
-  echo "entrada hecha";
+  //se crea una funcion donde se realiza la conexion a la base de datos se guardan y se cierra. 
+  $persona1->guardarDatos();
 }
 
-$stmt->close();
 
 
 
-
-
-
-//7. Cerrar la conexión 
-
-
-$conexion_tienda->close();
 
 ?>
 
