@@ -1,5 +1,5 @@
 <?php
-
+//se crea la clase participante con sus propiedades geters y seters.
 class Participante {
 
     private $nombre;
@@ -30,7 +30,7 @@ class Participante {
         $this->edad=$edad;
     }
 }
-
+//se crea la subclase jugador  con la posicion
 class Jugador extends Participante{
 
    private $posicion;
@@ -50,7 +50,7 @@ class Jugador extends Participante{
 
    }
 }
-
+//se crea la suclase arbitro con los años
 class Arbitro extends Participante{
     private $añosArbitraje;
     function __construct($nombre,$edad,$añosArbitraje)
@@ -68,6 +68,8 @@ class Arbitro extends Participante{
        }
 
 }
+
+//se crean los objetos para probar que todo funcione.
 $jugador1= new Jugador("juan",22,"central");
 $jugador2= new Jugador("pedro", 18,"portero");
 $arbitro1= new Arbitro("adujar",35,15);

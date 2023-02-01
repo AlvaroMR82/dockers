@@ -25,6 +25,8 @@ $obj = new class
 
 };
 
+echo  strval($obj->area());
+
 //las clases anonimas solo se pueden usar una vez.
 
 ?>
