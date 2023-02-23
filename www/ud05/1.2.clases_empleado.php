@@ -65,6 +65,7 @@ class Operario extends Empleado
     }
 }
 //Crear objetos que permitan comprobar todos los apartados anteriores
+
 $empleado = new Empleado("Alvaro", 1500);
 $operario = new Operario("Alvaro", 1500, false);
 echo $empleado::$numEmpleados; //comprobamos que funcione el contador
