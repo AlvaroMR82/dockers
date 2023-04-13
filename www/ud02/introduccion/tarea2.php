@@ -1,6 +1,6 @@
 <?php
 
-
+/*
  valor 
  $_N // Correcto.
  $valor_actual // Correcto.
@@ -22,5 +22,5 @@
  $saldoActual // Correcto.
  $92 //empieza por numero.
  $*143idade // Mal empieza por un caracter reservado.
-
+*/
 ?>
