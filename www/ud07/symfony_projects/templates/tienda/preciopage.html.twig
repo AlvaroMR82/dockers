@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <div class="container">
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <img src="imgenes/symfony_white_03.svg" alt="" width="30" height="24"class="d-inline-block align-text-top">
+                           
+                            Symfony
+                        </a>
+                        <ul class="nav justify-content-end">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/tienda">Tienda</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/precio" >Precio</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+        </div>
+    </div>
+    <div class="container text-center m-5 fst-italic">
+        <div class="h1">
+            Elige y paga a tu manera.
+        </div>
+         <div class="h1 text-danger">
+            {{aviso}}
+        </div>
+    </div>
+    <main>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Prueba</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">€0<small class="text-muted fw-light">/mes</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Elije un curso</li>
+                  <li>Completalo a tu ritmo</li>
+                  <li>Email support</li>
+                  <li>Help center access</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-outline-primary">Primer Curso gratis</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Mensual</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">€{{precio1}}<small class="text-muted fw-light">/mes</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>El curso que quieras</li>
+                  <li>Solo 1 al mismo tiempo</li>
+                  <li>Priority email support</li>
+                  <li>Help center access</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-primary">Empieza ahora</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+              <div class="card-header py-3 text-white bg-primary border-primary">
+                <h4 class="my-0 fw-normal">Anual</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">€{{precio2}}<small class="text-muted fw-light">/año</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>hasta 3 cursos simultaneos</li>
+                  <li>Tutor oline 24H</li>
+                  <li>Phone and email support</li>
+                  <li>Help center access</li>
+                </ul>
+                <button type="button" class="w-100 btn btn-lg btn-primary">El mas económico</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <h2 class="display-6 text-center mb-4"></h2>
+    
+        
+      </main>
+   
+    <div class="container m-5">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <p class="col-md-4 mb-0 text-muted">&copy; 2023 Mosquera Rial, Alvaro</p>
+      
+          <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+          </a>
+      
+          <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+          </ul>
+        </footer>
+      </div>
+      
+
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
