@@ -28,6 +28,7 @@ class TiendaController extends AbstractController {
                 'precio2' => '25',
                 'aviso'   =>  '50% de descuento en cursos de programación',
             ]);  
+
         }
         else{
         return $this->render('tienda/preciopage.html.twig', [
