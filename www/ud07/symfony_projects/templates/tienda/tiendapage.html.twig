@@ -13,7 +13,9 @@
 </head>
 
 <body>
+<!-- Esta seria a paxina donde se amosarian os cursos ainda que a suscripcion seria por tempo  -->
     <div class="container">
+    <!-- nav -->
     <div class="container mt-3">
         <div class="row">
             <div class="col">
@@ -26,14 +28,14 @@
                         </a>
                         <ul class="nav justify-content-end">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+                                <a class="nav-link active" aria-current="page" href="/">Inicio</a><!-- enlace a propia paxina-->
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/tienda">Tienda</a>
+                                <a class="nav-link" href="/tienda">Tienda</a><!-- enlace a tenda -->
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="/precio">Precio</a>
+                                <a class="nav-link" href="/precio">Precio</a><!-- enlace a paxina de compra -->
                             </li>
                         </ul>
                     </div>
@@ -42,11 +44,16 @@
             
         </div>
     </div>
+    <!-- titulo -->
     <div class="container text-center m-5 fst-italic">
         <div class="h1">
             Escoge tu curso y empieza a aprender.
         </div>
     </div>
+<!-- Articulo donde se iria a tenda de cursos de programación -->
+<!-- neste apartado usei o controller para aplicar unha rebaixa do 50% no precio dos cursos de programacion -->
+<!-- O enlace de todos os cursos de programacion teñen o comodin para que no controler cambie o cotido da paxina de compra 
+ poña un cartel carebaixa dun 50% e baixe o precio dos articulos  -->
     <div class="container text-center border border-primary mb-5">
         <div class="row m-5">
             <div class="h2">
@@ -59,7 +66,7 @@
                         <div class="card-body">
                           <h5 class="card-title">PHP</h5>
                           <p class="card-text">Iniciacion a PHP</p>
-                          <a href="/precio/prog" class="btn btn-primary">Go somewhere</a>
+                          <a href="/precio/programacion" class="btn btn-primary">Comprar</a><!-- enlace con comodin -->
                         </div>
                       </div>
                 </div>
@@ -68,7 +75,7 @@
                         <div class="card-body">
                           <h5 class="card-title">JS</h5>
                           <p class="card-text">Iniciacion a Java Script</p>
-                          <a href="/precio/prog" class="btn btn-primary">Go somewhere</a>
+                          <a href="/precio/programacion" class="btn btn-primary">Comprar</a><!-- enlace con comodin -->
                         </div>
                       </div>
                 </div>
@@ -77,7 +84,7 @@
                         <div class="card-body">
                           <h5 class="card-title">JAVA</h5>
                           <p class="card-text">Iniciacion a Java</p>
-                          <a href="/precio/prog" class="btn btn-primary">Go somewhere</a>
+                          <a href="/precio/programacion" class="btn btn-primary">Comprar</a><!-- enlace con comodin -->
                         </div>
                       </div>
                 </div>
@@ -88,7 +95,7 @@
                         <div class="card-body">
                           <h5 class="card-title">HTML</h5>
                           <p class="card-text">Iniciacion a html</p>
-                          <a href="/precio/prog" class="btn btn-primary">Go somewhere</a>
+                          <a href="/precio/programacion" class="btn btn-primary">Comprar</a><!-- enlace con comodin -->
                         </div>
                       </div>
                 </div>
@@ -97,7 +104,7 @@
                         <div class="card-body">
                           <h5 class="card-title">CSS</h5>
                           <p class="card-text">Iniciacion a css</p>
-                          <a href="/precio/prog" class="btn btn-primary">Go somewhere</a>
+                          <a href="/precio/programacion" class="btn btn-primary">Comprar</a><!-- enlace con comodin -->
                         </div>
                       </div>
                 </div>
@@ -106,13 +113,15 @@
                         <div class="card-body">
                           <h5 class="card-title">Bootstrap</h5>
                           <p class="card-text">Primeros pasos en bootstrap</p>
-                          <a href="/precio/prog" class="btn btn-primary">Go somewhere</a>
+                          <a href="/precio/programacion" class="btn btn-primary">Comprar</a><!-- enlace con comodin -->
                         </div>
                       </div>
                 </div>
             </div>
 
     </div>
+    <!-- Articulo donde se iria a tenda de cursos de hardware -->
+     <!-- Os enlaces non usan o comodin e polo tanto a paxina que amosa o controler cambia -->
     <div class="container text-center border border-primary mb-5 ">
         <div class="row m-5">
             <div class="h2">
@@ -125,7 +134,7 @@
                         <div class="card-body">
                           <h5 class="card-title">Hardware inicial y componentes basicos</h5>
                           <p class="card-text">Lo mejor para tu inicio de curso</p>
-                          <a href="/precio" class="btn btn-primary">Go somewhere</a>
+                          <a href="/precio" class="btn btn-primary">Comprar</a><!-- enlace sin comodin -->
                         </div>
                       </div>
                 </div>
@@ -134,7 +143,7 @@
                         <div class="card-body">
                           <h5 class="card-title">Hardware avanzado</h5>
                           <p class="card-text">Montajes especiales y servidores</p>
-                          <a href="/precio" class="btn btn-primary">Go somewhere</a>
+                          <a href="/precio" class="btn btn-primary">Comprar</a><!-- enlace sin comodin -->
                         </div>
                       </div>
                 </div>
@@ -143,7 +152,7 @@
                         <div class="card-body">
                           <h5 class="card-title">Hardware industrial</h5>
                           <p class="card-text">Curso especial para harware dedicado a la industria</p>
-                          <a href="/precio" class="btn btn-primary">Go somewhere</a>
+                          <a href="/precio" class="btn btn-primary">Comprar</a><!-- enlace sin comodin -->
                         </div>
                       </div>
                 </div>
@@ -151,6 +160,8 @@
            
 
     </div>
+     <!-- Articulo donde se iria a tenda de cursos de frameowrks -->
+     <!-- Os enlaces non usan o comodin e polo tanto a paxina que amosa o controler cambia -->
     <div class="container text-center border border-primary ">
         <div class="row m-5">
             <div class="h2">
@@ -164,7 +175,7 @@
                         <div class="card-body">
                           <h5 class="card-title">Symfony</h5>
                           <p class="card-text">Aprende symfony desde cero.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                          <a href="/precio" class="btn btn-primary">Comprar</a><!-- enlace sin comodin -->
                         </div>
                       </div>
                 </div>
@@ -173,7 +184,7 @@
                         <div class="card-body">
                           <h5 class="card-title">React</h5>
                           <p class="card-text">Aprende react desde cero.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                          <a href="/precio" class="btn btn-primary">Comprar</a><!-- enlace sin comodin -->
                         </div>
                       </div>
                 </div>
@@ -182,7 +193,7 @@
                         <div class="card-body">
                           <h5 class="card-title">Angular</h5>
                           <p class="card-text">Aprende angular desde cero.</p>
-                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                          <a href="/precio" class="btn btn-primary">Comprar</a><!-- enlace sin comodin -->
                         </div>
                       </div>
                 </div>

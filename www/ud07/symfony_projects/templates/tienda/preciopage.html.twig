@@ -13,7 +13,9 @@
 </head>
 
 <body>
+<!-- Paxina que seria onde se amosan os precios e se realiza a suscripción -->
     <div class="container">
+    <!-- Nav -->
     <div class="container mt-3">
         <div class="row">
             <div class="col">
@@ -41,14 +43,16 @@
             
         </div>
     </div>
+    <!-- Titulo -->
     <div class="container text-center m-5 fst-italic">
         <div class="h1">
             Elige y paga a tu manera.
         </div>
          <div class="h1 text-danger">
-            {{aviso}}
+            {{aviso}} <!-- Se usan las variables que se pasan por el controler para generar este aviso para mostrar el descuento -->
         </div>
     </div>
+<!-- Articulo de precios. -->
     <main>
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
           <div class="col">
@@ -74,7 +78,7 @@
                 <h4 class="my-0 fw-normal">Mensual</h4>
               </div>
               <div class="card-body">
-                <h1 class="card-title pricing-card-title">€{{precio1}}<small class="text-muted fw-light">/mes</small></h1>
+                <h1 class="card-title pricing-card-title">€{{precio1}}<small class="text-muted fw-light">/mes</small></h1><!-- El precio aplicado viene dado por el controler si tiene descuento o no-->
                 <ul class="list-unstyled mt-3 mb-4">
                   <li>El curso que quieras</li>
                   <li>Solo 1 al mismo tiempo</li>
@@ -91,7 +95,7 @@
                 <h4 class="my-0 fw-normal">Anual</h4>
               </div>
               <div class="card-body">
-                <h1 class="card-title pricing-card-title">€{{precio2}}<small class="text-muted fw-light">/año</small></h1>
+                <h1 class="card-title pricing-card-title">€{{precio2}}<small class="text-muted fw-light">/año</small></h1><!-- El precio aplicado viene dado por el controler si tiene descuento o no-->
                 <ul class="list-unstyled mt-3 mb-4">
                   <li>hasta 3 cursos simultaneos</li>
                   <li>Tutor oline 24H</li>

@@ -22,11 +22,11 @@ class TiendaController extends AbstractController {
     }
     #[Route('/precio/{slug}')]
     public function Preciopage(string $slug=null) {
-        if($slug=="prog"){
+        if($slug=="programacion"){
             return $this->render('tienda/preciopage.html.twig', [
                 'precio1' => '5',
                 'precio2' => '25',
-                'aviso'   =>  '50% de descuento en cursos de programación',
+                'aviso'   =>  '50% de descuento en cursos de '.$slug,
             ]);  
 
         }
