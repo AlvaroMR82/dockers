@@ -1,0 +1,19 @@
+{
+    "cursos": [
+      {
+        "name" : "Java",
+        "paradigna" : "POO",
+        "letrero" : "Iniciacion a Java"
+      },
+      {
+        "name" : "PHP",
+        "paradigna" : "POO",
+        "letrero" : "Iniciacion a PHP"
+      },
+      {
+        "name" : "JavaScript",
+        "paradigna" : "POO",
+        "letrero" : "Iniciacion a JavaScript"
+      }
+    ]
+  }

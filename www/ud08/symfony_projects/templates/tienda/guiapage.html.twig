@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <!-- Esta e a paxina de inicio ou presentación so conten os enlaces as outras paxinas que comporian a aplicaión -->
+    <!-- Seria una simulacion dunha tenda de cursos de formación -->
+    <div class="container">
+
+        <!-- nav  -->
+        {{ component('nav') }}
+        <!-- titulo -->
+        <div class="container text-center m-5 fst-italic">
+            <div class="h1 m-5 alert alert-info">
+                Explicacion de la tarea.
+            </div>
+            <div class="row m-5">
+                <div class=" col-5 h3">
+                    -La tarea esta pensanda para probar los controller symfony desde los enlaces de los nav y la tienda.
+                    Sera donde encuentres los comentarios en el código.
+                </div>
+            </div>
+            <div class="row m-5">
+                <div class=" col-6  bg-light">
+
+                </div>
+                <div class=" col-5 h3 bg-light">
+                    -En la pájina de la tienda, desde los cursos de programación se usa el controller con un slug que
+                    cambia los datos de los precios y
+                    muestra en pantalla un cartel del descuento.
+                </div>
+            </div>
+            <div class="row m-5">
+                <div class=" col-6 h3 ">
+                    -El resto de pajinas no lo hace, accede al precio de manera inicial.
+                </div>
+            </div>
+        </div>
+        <div class="h1 m-5 text-center alert alert-info">
+            Seguimos con los comentarios. <br> Las explicaciones de la nueva tarea se describen a continuación.
+        </div>
+
+        <div class="row m-5">
+            <div class=" col-12 display-6">
+                -Se instala el bundle "component", se crean dos componentes llamados footer y nav que se repetian a
+                lo largo del proyecto y se reutiliza el codigo ya que eran iguales en todas las pajinas.
+
+            </div>
+        </div>
+        <div class="row m-5">
+
+            <div class="col-12 display-6 bg-light">
+                -Para el ejercicio del json cree un repositorio publico en github, donde colge un "tienda.json", y en le cual
+                se describen los parametros para configurar la parte de la tienda que pertenece a los cursos de programación.
+            </div>
+
+            <div class="row mt-5">
+                <div class=" col-12 display-6">
+                    -Se configura un httpclientinterface, se obtiene la lectura del json, se convierte a un array y se
+                    le manda a la tienda.
+                    Para no sobrecargar las busquedas se establece una cache donde se guardan los datos y se configura
+                    un tiempo de expiración de 5.
+
+                </div>
+            </div>
+            <div class=" col-12 display-6 bg-light mt-5">
+                <div class=" ccol-12 display-6 bg-light">
+                    -En la tienda se obtiene ese array, se crea un for con los datos y crea cada una de las
+                    tarjetas que conforman esta parte de la tienda. Se ahorra escribir codigo. 
+                    (el for que se me olvido en la otra tarea).
+                </div>
+            </div>
+
+
+            <div class="display-3 m-5">
+                Un saludo. ;)
+            </div>
+
+        </div>
+        <!-- footer -->
+
+        {{ component('footer') }}
+
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
