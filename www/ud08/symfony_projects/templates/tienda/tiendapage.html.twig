@@ -35,12 +35,12 @@
      
        </div>
       <div class="row ms-5 mb-5 ">
-        {% for producto in productos %}
+        {% for producto in productos %}  <!-- Este es el for que con los elementos del array crea la parte de los cursos de programación -->
         <div class="col m-1">
           <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">{{producto.name}}</h5>
-              <p class="card-text">{{producto.texto}}</p>
+              <h5 class="card-title">{{producto.name}}</h5><!-- Aqui se usa el dato del array que viene del json-->
+              <p class="card-text">{{producto.texto}}</p><!-- Aqui se usa el dato del array que viene del json-->
               <a href="/precio/programacion" class="btn btn-primary">Comprar</a><!-- enlace con comodin -->
             </div>
           </div>
